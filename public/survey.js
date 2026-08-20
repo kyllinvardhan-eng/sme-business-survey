@@ -18,10 +18,7 @@ function applyUtmSourceToForm() {
 }
 
 function buildShareUrl() {
-  const url = new URL(window.location.href);
-  url.search = '';
-  url.searchParams.set('utm_source', 'whatsapp');
-  return url.toString();
+  return 'https://bit.ly/4qts3Zp';
 }
 
 function shareViaWhatsApp() {
