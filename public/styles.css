@@ -1,0 +1,464 @@
+:root {
+  --primary-color: #000;
+  --primary-color-hover: #222;
+  --whatsapp-color: #25d366;
+  --whatsapp-color-hover: #1ebe5b;
+  --text-dark: #1a1a1a;
+  --text-muted: #6b6b6b;
+  --bg-light: #f9f9f9;
+  --border-color: #e2e2e2;
+  --danger-color: #c0392b;
+  --card-radius: 12px;
+  --max-width: 640px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.view {
+  min-height: 100vh;
+}
+
+.screen {
+  display: flex;
+  justify-content: center;
+  padding: 24px 16px 64px;
+}
+
+.card {
+  background: #fff;
+  border-radius: var(--card-radius);
+  padding: 40px 32px;
+  max-width: var(--max-width);
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  margin-top: 40px;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 12px;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  margin-bottom: 28px;
+}
+
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--primary-color-hover);
+}
+
+.btn-secondary {
+  background: #fff;
+  color: var(--text-dark);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-light);
+}
+
+.btn-whatsapp {
+  background: var(--whatsapp-color);
+  color: #fff;
+}
+
+.btn-whatsapp:hover {
+  background: var(--whatsapp-color-hover);
+}
+
+.wa-icon {
+  margin-right: 6px;
+}
+
+#form-screen {
+  flex-direction: column;
+  align-items: center;
+}
+
+.progress-wrap {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 16px auto 0;
+}
+
+.progress-bar {
+  background: var(--border-color);
+  border-radius: 999px;
+  height: 6px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  background: var(--primary-color);
+  height: 100%;
+  width: 5.5%;
+  transition: width 0.2s ease;
+}
+
+.progress-label {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+#survey-form {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-top: 20px;
+}
+
+.question {
+  background: #fff;
+  border-radius: var(--card-radius);
+  padding: 28px 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.question.hidden {
+  display: none;
+}
+
+.question label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.question .section-label {
+  font-size: 1.1rem;
+}
+
+.hint {
+  font-weight: 400;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  margin-bottom: 16px;
+  background: #fff;
+  color: var(--text-dark);
+}
+
+textarea {
+  resize: vertical;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 400 !important;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.checkbox-option input {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.scale-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.scale-wrap input[type="range"] {
+  flex: 1;
+}
+
+.scale-wrap output {
+  font-weight: 700;
+  font-size: 1.1rem;
+  min-width: 24px;
+  text-align: center;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.nav-buttons .btn {
+  margin-top: 0;
+}
+
+.error-text {
+  color: var(--danger-color);
+  font-size: 0.85rem;
+  margin: -8px 0 12px;
+}
+
+/* ============ ADMIN ============ */
+
+#admin-view .screen {
+  align-items: flex-start;
+}
+
+#admin-dashboard-screen {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 16px 80px;
+  display: block;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.admin-header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.admin-header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.admin-header-actions .btn {
+  width: auto;
+  margin-top: 0;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: var(--card-radius);
+  padding: 18px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.stat-card .stat-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.stat-card .stat-label {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+.dashboard-section {
+  margin-bottom: 36px;
+}
+
+.dashboard-section h2 {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.chart-card {
+  background: #fff;
+  border-radius: var(--card-radius);
+  padding: 18px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.chart-card h3 {
+  font-size: 0.95rem;
+  margin: 0 0 14px;
+}
+
+.bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+}
+
+.bar-row .bar-label {
+  flex: 0 0 42%;
+  color: var(--text-dark);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bar-row .bar-track {
+  flex: 1;
+  background: var(--bg-light);
+  border-radius: 4px;
+  height: 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bar-row .bar-fill {
+  background: var(--primary-color);
+  height: 100%;
+  border-radius: 4px;
+}
+
+.bar-row .bar-count {
+  flex: 0 0 30px;
+  text-align: right;
+  color: var(--text-muted);
+}
+
+.bar-empty {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.opportunities-list {
+  background: #fff;
+  border-radius: var(--card-radius);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  padding: 20px 20px 20px 44px;
+  margin-top: 12px;
+}
+
+.opportunities-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.opportunities-list li:last-child {
+  border-bottom: none;
+}
+
+.opportunities-list .opp-score {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+#whatsapp-section {
+  background: #fff;
+  border-radius: var(--card-radius);
+  padding: 20px 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.copy-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.copy-row input {
+  margin-bottom: 0;
+}
+
+.copy-row .btn {
+  width: auto;
+  margin-top: 0;
+  flex-shrink: 0;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  background: #fff;
+  border-radius: var(--card-radius);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+}
+
+th {
+  background: var(--bg-light);
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .card, .question {
+    padding: 22px 18px;
+  }
+
+  .nav-buttons {
+    flex-direction: column-reverse;
+  }
+}
