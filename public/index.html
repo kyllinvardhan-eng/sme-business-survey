@@ -34,7 +34,12 @@
         <span id="progress-label" class="progress-label">Question 1 of 18</span>
       </div>
 
-      <form id="survey-form" novalidate>
+      <form id="survey-form" name="survey" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="survey" />
+        <input type="hidden" name="utm_source" id="utm_source_field" value="organic" />
+        <p class="hidden" aria-hidden="true">
+          <label>Leave this field blank: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+        </p>
 
         <!-- Part 1: Business Context -->
 
@@ -81,15 +86,15 @@
         <div class="question" data-question="5">
           <label>Which areas still involve a lot of manual, repetitive work? <span class="hint">(select all that apply)</span></label>
           <div class="checkbox-group" data-field="manual_work_areas">
-            <label class="checkbox-option"><input type="checkbox" value="Scheduling / calendar management" /> Scheduling / calendar management</label>
-            <label class="checkbox-option"><input type="checkbox" value="Invoicing / billing" /> Invoicing / billing</label>
-            <label class="checkbox-option"><input type="checkbox" value="Customer support / replies" /> Customer support / replies</label>
-            <label class="checkbox-option"><input type="checkbox" value="Data entry" /> Data entry</label>
-            <label class="checkbox-option"><input type="checkbox" value="Reporting" /> Reporting</label>
-            <label class="checkbox-option"><input type="checkbox" value="Inventory / stock management" /> Inventory / stock management</label>
-            <label class="checkbox-option"><input type="checkbox" value="Social media / marketing" /> Social media / marketing</label>
-            <label class="checkbox-option"><input type="checkbox" value="HR / hiring / onboarding" /> HR / hiring / onboarding</label>
-            <label class="checkbox-option"><input type="checkbox" value="Follow-ups / chasing people" /> Follow-ups / chasing people</label>
+            <label class="checkbox-option"><input type="checkbox" name="manual_work_areas" value="Scheduling / calendar management" /> Scheduling / calendar management</label>
+            <label class="checkbox-option"><input type="checkbox" name="manual_work_areas" value="Invoicing / billing" /> Invoicing / billing</label>
+            <label class="checkbox-option"><input type="checkbox" name="manual_work_areas" value="Customer support / replies" /> Customer support / replies</label>
+            <label class="checkbox-option"><input type="checkbox" name="manual_work_areas" value="Data entry" /> Data entry</label>
+            <label class="checkbox-option"><input type="checkbox" name="manual_work_areas" value="Reporting" /> Reporting</label>
+            <label class="checkbox-option"><input type="checkbox" name="manual_work_areas" value="Inventory / stock management" /> Inventory / stock management</label>
+            <label class="checkbox-option"><input type="checkbox" name="manual_work_areas" value="Social media / marketing" /> Social media / marketing</label>
+            <label class="checkbox-option"><input type="checkbox" name="manual_work_areas" value="HR / hiring / onboarding" /> HR / hiring / onboarding</label>
+            <label class="checkbox-option"><input type="checkbox" name="manual_work_areas" value="Follow-ups / chasing people" /> Follow-ups / chasing people</label>
           </div>
         </div>
 
@@ -120,29 +125,29 @@
         <div class="question" data-question="9">
           <label>Which areas could use specialist support? <span class="hint">(select all that apply)</span></label>
           <div class="checkbox-group" data-field="desired_specialist_support">
-            <label class="checkbox-option"><input type="checkbox" value="Finance / bookkeeping" /> Finance / bookkeeping</label>
-            <label class="checkbox-option"><input type="checkbox" value="Marketing / growth" /> Marketing / growth</label>
-            <label class="checkbox-option"><input type="checkbox" value="Operations / process" /> Operations / process</label>
-            <label class="checkbox-option"><input type="checkbox" value="Customer service" /> Customer service</label>
-            <label class="checkbox-option"><input type="checkbox" value="HR / people" /> HR / people</label>
-            <label class="checkbox-option"><input type="checkbox" value="IT / systems" /> IT / systems</label>
-            <label class="checkbox-option"><input type="checkbox" value="Sales" /> Sales</label>
-            <label class="checkbox-option"><input type="checkbox" value="Legal / compliance" /> Legal / compliance</label>
+            <label class="checkbox-option"><input type="checkbox" name="desired_specialist_support" value="Finance / bookkeeping" /> Finance / bookkeeping</label>
+            <label class="checkbox-option"><input type="checkbox" name="desired_specialist_support" value="Marketing / growth" /> Marketing / growth</label>
+            <label class="checkbox-option"><input type="checkbox" name="desired_specialist_support" value="Operations / process" /> Operations / process</label>
+            <label class="checkbox-option"><input type="checkbox" name="desired_specialist_support" value="Customer service" /> Customer service</label>
+            <label class="checkbox-option"><input type="checkbox" name="desired_specialist_support" value="HR / people" /> HR / people</label>
+            <label class="checkbox-option"><input type="checkbox" name="desired_specialist_support" value="IT / systems" /> IT / systems</label>
+            <label class="checkbox-option"><input type="checkbox" name="desired_specialist_support" value="Sales" /> Sales</label>
+            <label class="checkbox-option"><input type="checkbox" name="desired_specialist_support" value="Legal / compliance" /> Legal / compliance</label>
           </div>
         </div>
 
         <div class="question" data-question="10">
           <label>What systems or software do you currently use to run the business? <span class="hint">(select all that apply)</span></label>
           <div class="checkbox-group" data-field="systems_used">
-            <label class="checkbox-option"><input type="checkbox" value="Spreadsheets (Excel/Sheets)" /> Spreadsheets (Excel/Sheets)</label>
-            <label class="checkbox-option"><input type="checkbox" value="Accounting software" /> Accounting software</label>
-            <label class="checkbox-option"><input type="checkbox" value="CRM" /> CRM</label>
-            <label class="checkbox-option"><input type="checkbox" value="Project management tool" /> Project management tool</label>
-            <label class="checkbox-option"><input type="checkbox" value="Point of sale (POS)" /> Point of sale (POS)</label>
-            <label class="checkbox-option"><input type="checkbox" value="WhatsApp / messaging apps" /> WhatsApp / messaging apps</label>
-            <label class="checkbox-option"><input type="checkbox" value="Email only" /> Email only</label>
-            <label class="checkbox-option"><input type="checkbox" value="Pen and paper" /> Pen and paper</label>
-            <label class="checkbox-option"><input type="checkbox" value="None of the above" /> None of the above</label>
+            <label class="checkbox-option"><input type="checkbox" name="systems_used" value="Spreadsheets (Excel/Sheets)" /> Spreadsheets (Excel/Sheets)</label>
+            <label class="checkbox-option"><input type="checkbox" name="systems_used" value="Accounting software" /> Accounting software</label>
+            <label class="checkbox-option"><input type="checkbox" name="systems_used" value="CRM" /> CRM</label>
+            <label class="checkbox-option"><input type="checkbox" name="systems_used" value="Project management tool" /> Project management tool</label>
+            <label class="checkbox-option"><input type="checkbox" name="systems_used" value="Point of sale (POS)" /> Point of sale (POS)</label>
+            <label class="checkbox-option"><input type="checkbox" name="systems_used" value="WhatsApp / messaging apps" /> WhatsApp / messaging apps</label>
+            <label class="checkbox-option"><input type="checkbox" name="systems_used" value="Email only" /> Email only</label>
+            <label class="checkbox-option"><input type="checkbox" name="systems_used" value="Pen and paper" /> Pen and paper</label>
+            <label class="checkbox-option"><input type="checkbox" name="systems_used" value="None of the above" /> None of the above</label>
           </div>
         </div>
 
@@ -170,13 +175,13 @@
         <div class="question" data-question="14">
           <label>What outcomes matter most to you right now? <span class="hint">(select all that apply)</span></label>
           <div class="checkbox-group" data-field="desired_outcomes">
-            <label class="checkbox-option"><input type="checkbox" value="Save time" /> Save time</label>
-            <label class="checkbox-option"><input type="checkbox" value="Reduce costs" /> Reduce costs</label>
-            <label class="checkbox-option"><input type="checkbox" value="Grow revenue" /> Grow revenue</label>
-            <label class="checkbox-option"><input type="checkbox" value="Fewer mistakes" /> Fewer mistakes</label>
-            <label class="checkbox-option"><input type="checkbox" value="Better customer experience" /> Better customer experience</label>
-            <label class="checkbox-option"><input type="checkbox" value="More peace of mind" /> More peace of mind</label>
-            <label class="checkbox-option"><input type="checkbox" value="Ability to scale" /> Ability to scale</label>
+            <label class="checkbox-option"><input type="checkbox" name="desired_outcomes" value="Save time" /> Save time</label>
+            <label class="checkbox-option"><input type="checkbox" name="desired_outcomes" value="Reduce costs" /> Reduce costs</label>
+            <label class="checkbox-option"><input type="checkbox" name="desired_outcomes" value="Grow revenue" /> Grow revenue</label>
+            <label class="checkbox-option"><input type="checkbox" name="desired_outcomes" value="Fewer mistakes" /> Fewer mistakes</label>
+            <label class="checkbox-option"><input type="checkbox" name="desired_outcomes" value="Better customer experience" /> Better customer experience</label>
+            <label class="checkbox-option"><input type="checkbox" name="desired_outcomes" value="More peace of mind" /> More peace of mind</label>
+            <label class="checkbox-option"><input type="checkbox" name="desired_outcomes" value="Ability to scale" /> Ability to scale</label>
           </div>
         </div>
 
