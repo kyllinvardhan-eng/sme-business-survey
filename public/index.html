@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SME Business Survey</title>
+  <meta name="description" content="A 5-minute survey on the operational challenges facing small and medium businesses." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============ SURVEY VIEW ============ -->
+  <main id="survey-view" class="view">
+
+    <!-- Intro screen -->
+    <section id="intro-screen" class="screen">
+      <div class="card">
+        <h1>Tell us how your business really runs.</h1>
+        <p class="subtitle">
+          18 quick questions about your operations, systems, and pain points.
+          Takes about 5 minutes &mdash; your answers are anonymous unless you choose to share contact details.
+        </p>
+        <button id="start-btn" class="btn btn-primary">Start the survey</button>
+        <button id="whatsapp-share-intro" class="btn btn-whatsapp">
+          <span class="wa-icon" aria-hidden="true">&#9742;</span> Share via WhatsApp
+        </button>
+      </div>
+    </section>
+
+    <!-- Survey form -->
+    <section id="form-screen" class="screen hidden">
+      <div class="progress-wrap">
+        <div class="progress-bar"><div id="progress-fill" class="progress-fill"></div></div>
+        <span id="progress-label" class="progress-label">Question 1 of 18</span>
+      </div>
+
+      <form id="survey-form" novalidate>
+
+        <!-- Part 1: Business Context -->
+
+        <div class="question" data-question="1">
+          <label for="industry">What industry is your business in?</label>
+          <select id="industry" name="industry">
+            <option value="">Select an industry&hellip;</option>
+            <option>Retail / E-commerce</option>
+            <option>Professional Services</option>
+            <option>Hospitality / Food &amp; Beverage</option>
+            <option>Construction / Trades</option>
+            <option>Healthcare / Wellness</option>
+            <option>Manufacturing</option>
+            <option>Technology / Software</option>
+            <option>Creative / Media / Marketing</option>
+            <option>Logistics / Transport</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="question" data-question="2">
+          <label for="company_size">How many people work at your business?</label>
+          <select id="company_size" name="company_size">
+            <option value="">Select a size&hellip;</option>
+            <option>Just me</option>
+            <option>2-5 employees</option>
+            <option>6-15 employees</option>
+            <option>16-50 employees</option>
+            <option>51-200 employees</option>
+            <option>200+ employees</option>
+          </select>
+        </div>
+
+        <div class="question" data-question="3">
+          <label for="role">What's your role in the business?</label>
+          <input type="text" id="role" name="role" placeholder="e.g. Owner, Operations Manager, Founder" />
+        </div>
+
+        <div class="question" data-question="4">
+          <label for="time_consuming_tasks">What tasks eat up the most time in your day-to-day?</label>
+          <textarea id="time_consuming_tasks" name="time_consuming_tasks" rows="3" placeholder="Be as specific as you can..."></textarea>
+        </div>
+
+        <div class="question" data-question="5">
+          <label>Which areas still involve a lot of manual, repetitive work? <span class="hint">(select all that apply)</span></label>
+          <div class="checkbox-group" data-field="manual_work_areas">
+            <label class="checkbox-option"><input type="checkbox" value="Scheduling / calendar management" /> Scheduling / calendar management</label>
+            <label class="checkbox-option"><input type="checkbox" value="Invoicing / billing" /> Invoicing / billing</label>
+            <label class="checkbox-option"><input type="checkbox" value="Customer support / replies" /> Customer support / replies</label>
+            <label class="checkbox-option"><input type="checkbox" value="Data entry" /> Data entry</label>
+            <label class="checkbox-option"><input type="checkbox" value="Reporting" /> Reporting</label>
+            <label class="checkbox-option"><input type="checkbox" value="Inventory / stock management" /> Inventory / stock management</label>
+            <label class="checkbox-option"><input type="checkbox" value="Social media / marketing" /> Social media / marketing</label>
+            <label class="checkbox-option"><input type="checkbox" value="HR / hiring / onboarding" /> HR / hiring / onboarding</label>
+            <label class="checkbox-option"><input type="checkbox" value="Follow-ups / chasing people" /> Follow-ups / chasing people</label>
+          </div>
+        </div>
+
+        <div class="question" data-question="6">
+          <label for="tasks_being_missed">What gets missed, delayed, or dropped because there isn't enough time?</label>
+          <textarea id="tasks_being_missed" name="tasks_being_missed" rows="3"></textarea>
+        </div>
+
+        <div class="question" data-question="7">
+          <label for="hours_lost_per_week">Roughly how many hours per week do you lose to manual or repetitive tasks?</label>
+          <select id="hours_lost_per_week" name="hours_lost_per_week">
+            <option value="">Select a range&hellip;</option>
+            <option>Less than 5 hours</option>
+            <option>5-10 hours</option>
+            <option>11-20 hours</option>
+            <option>21-30 hours</option>
+            <option>More than 30 hours</option>
+          </select>
+        </div>
+
+        <!-- Part 2: Solutions & Willingness -->
+
+        <div class="question" data-question="8">
+          <label for="ideal_additional_role">If you could hire one extra role tomorrow, what would it be?</label>
+          <input type="text" id="ideal_additional_role" name="ideal_additional_role" placeholder="e.g. Operations Manager, Bookkeeper, Assistant" />
+        </div>
+
+        <div class="question" data-question="9">
+          <label>Which areas could use specialist support? <span class="hint">(select all that apply)</span></label>
+          <div class="checkbox-group" data-field="desired_specialist_support">
+            <label class="checkbox-option"><input type="checkbox" value="Finance / bookkeeping" /> Finance / bookkeeping</label>
+            <label class="checkbox-option"><input type="checkbox" value="Marketing / growth" /> Marketing / growth</label>
+            <label class="checkbox-option"><input type="checkbox" value="Operations / process" /> Operations / process</label>
+            <label class="checkbox-option"><input type="checkbox" value="Customer service" /> Customer service</label>
+            <label class="checkbox-option"><input type="checkbox" value="HR / people" /> HR / people</label>
+            <label class="checkbox-option"><input type="checkbox" value="IT / systems" /> IT / systems</label>
+            <label class="checkbox-option"><input type="checkbox" value="Sales" /> Sales</label>
+            <label class="checkbox-option"><input type="checkbox" value="Legal / compliance" /> Legal / compliance</label>
+          </div>
+        </div>
+
+        <div class="question" data-question="10">
+          <label>What systems or software do you currently use to run the business? <span class="hint">(select all that apply)</span></label>
+          <div class="checkbox-group" data-field="systems_used">
+            <label class="checkbox-option"><input type="checkbox" value="Spreadsheets (Excel/Sheets)" /> Spreadsheets (Excel/Sheets)</label>
+            <label class="checkbox-option"><input type="checkbox" value="Accounting software" /> Accounting software</label>
+            <label class="checkbox-option"><input type="checkbox" value="CRM" /> CRM</label>
+            <label class="checkbox-option"><input type="checkbox" value="Project management tool" /> Project management tool</label>
+            <label class="checkbox-option"><input type="checkbox" value="Point of sale (POS)" /> Point of sale (POS)</label>
+            <label class="checkbox-option"><input type="checkbox" value="WhatsApp / messaging apps" /> WhatsApp / messaging apps</label>
+            <label class="checkbox-option"><input type="checkbox" value="Email only" /> Email only</label>
+            <label class="checkbox-option"><input type="checkbox" value="Pen and paper" /> Pen and paper</label>
+            <label class="checkbox-option"><input type="checkbox" value="None of the above" /> None of the above</label>
+          </div>
+        </div>
+
+        <div class="question" data-question="11">
+          <label for="named_software">Any specific software or tools worth naming? <span class="hint">(optional)</span></label>
+          <input type="text" id="named_software" name="named_software" placeholder="e.g. QuickBooks, HubSpot, Notion" />
+        </div>
+
+        <div class="question" data-question="12">
+          <label for="business_visibility_score">How clear is your day-to-day visibility into what's happening across the business? <span class="hint">(1 = in the dark, 10 = full visibility)</span></label>
+          <div class="scale-wrap">
+            <input type="range" id="business_visibility_score" name="business_visibility_score" min="1" max="10" value="5" />
+            <output for="business_visibility_score" id="business_visibility_score_out">5</output>
+          </div>
+        </div>
+
+        <div class="question" data-question="13">
+          <label for="daily_brief_value_score">Imagine a daily brief that automatically summarized what needs your attention. How valuable would that be? <span class="hint">(1 = not valuable, 10 = extremely valuable)</span></label>
+          <div class="scale-wrap">
+            <input type="range" id="daily_brief_value_score" name="daily_brief_value_score" min="1" max="10" value="5" />
+            <output for="daily_brief_value_score" id="daily_brief_value_score_out">5</output>
+          </div>
+        </div>
+
+        <div class="question" data-question="14">
+          <label>What outcomes matter most to you right now? <span class="hint">(select all that apply)</span></label>
+          <div class="checkbox-group" data-field="desired_outcomes">
+            <label class="checkbox-option"><input type="checkbox" value="Save time" /> Save time</label>
+            <label class="checkbox-option"><input type="checkbox" value="Reduce costs" /> Reduce costs</label>
+            <label class="checkbox-option"><input type="checkbox" value="Grow revenue" /> Grow revenue</label>
+            <label class="checkbox-option"><input type="checkbox" value="Fewer mistakes" /> Fewer mistakes</label>
+            <label class="checkbox-option"><input type="checkbox" value="Better customer experience" /> Better customer experience</label>
+            <label class="checkbox-option"><input type="checkbox" value="More peace of mind" /> More peace of mind</label>
+            <label class="checkbox-option"><input type="checkbox" value="Ability to scale" /> Ability to scale</label>
+          </div>
+        </div>
+
+        <div class="question" data-question="15">
+          <label for="ai_action_comfort">How comfortable are you with AI/automation taking actions on your behalf (e.g. sending replies, updating records)?</label>
+          <select id="ai_action_comfort" name="ai_action_comfort">
+            <option value="">Select an answer&hellip;</option>
+            <option>Very comfortable - let it act automatically</option>
+            <option>Somewhat comfortable - with my approval first</option>
+            <option>Cautious - only for low-risk tasks</option>
+            <option>Not comfortable - I want to stay in control</option>
+          </select>
+        </div>
+
+        <div class="question" data-question="16">
+          <label for="willingness_to_pay">If a solution solved your biggest operational headache, what would you expect to pay per month?</label>
+          <select id="willingness_to_pay" name="willingness_to_pay">
+            <option value="">Select a range&hellip;</option>
+            <option>Nothing - I'd need it to be free</option>
+            <option>Under $50/month</option>
+            <option>$50-150/month</option>
+            <option>$150-500/month</option>
+            <option>$500+/month</option>
+          </select>
+        </div>
+
+        <div class="question" data-question="17">
+          <label for="definition_of_value">What would "worth paying for" actually look like for you?</label>
+          <textarea id="definition_of_value" name="definition_of_value" rows="3"></textarea>
+        </div>
+
+        <div class="question" data-question="18">
+          <label for="biggest_frustration">What's the single biggest frustration in running your business right now?</label>
+          <textarea id="biggest_frustration" name="biggest_frustration" rows="3"></textarea>
+        </div>
+
+        <!-- Optional contact -->
+        <div class="question" data-question="19">
+          <label class="section-label">Almost done! Contact details are optional.</label>
+          <p class="hint">Leave your details if you're open to a short follow-up interview.</p>
+
+          <label for="contact_name">Name</label>
+          <input type="text" id="contact_name" name="contact_name" />
+
+          <label for="contact_email">Email</label>
+          <input type="email" id="contact_email" name="contact_email" />
+
+          <label for="contact_company">Company</label>
+          <input type="text" id="contact_company" name="contact_company" />
+
+          <label class="checkbox-option">
+            <input type="checkbox" id="followup_permission" name="followup_permission" />
+            I'm open to a short follow-up interview about my answers.
+          </label>
+        </div>
+
+        <div class="nav-buttons">
+          <button type="button" id="back-btn" class="btn btn-secondary">Back</button>
+          <button type="button" id="next-btn" class="btn btn-primary">Next</button>
+          <button type="submit" id="submit-btn" class="btn btn-primary hidden">Submit survey</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Thank you screen -->
+    <section id="thanks-screen" class="screen hidden">
+      <div class="card">
+        <h1>Thank you!</h1>
+        <p class="subtitle">Your answers have been recorded. We really appreciate the 5 minutes.</p>
+        <button id="whatsapp-share-thanks" class="btn btn-whatsapp">
+          <span class="wa-icon" aria-hidden="true">&#9742;</span> Share this survey via WhatsApp
+        </button>
+      </div>
+    </section>
+
+    <section id="error-screen" class="screen hidden">
+      <div class="card">
+        <h1>Something went wrong</h1>
+        <p class="subtitle" id="error-message">We couldn't submit your response. Please try again.</p>
+        <button id="retry-btn" class="btn btn-primary">Try again</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ ADMIN VIEW ============ -->
+  <main id="admin-view" class="view hidden">
+
+    <section id="admin-login-screen" class="screen">
+      <div class="card">
+        <h1>Admin Login</h1>
+        <form id="admin-login-form">
+          <label for="admin-password">Password</label>
+          <input type="password" id="admin-password" name="admin-password" required />
+          <p id="admin-login-error" class="error-text hidden">Incorrect password.</p>
+          <button type="submit" class="btn btn-primary">Log in</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="admin-dashboard-screen" class="screen hidden">
+      <header class="admin-header">
+        <h1>SME Business Survey &mdash; Dashboard</h1>
+        <div class="admin-header-actions">
+          <button id="export-csv-btn" class="btn btn-secondary">Export CSV</button>
+          <button id="admin-logout-btn" class="btn btn-secondary">Log out</button>
+        </div>
+      </header>
+
+      <section class="stat-grid" id="stat-grid"></section>
+
+      <section class="dashboard-section">
+        <h2>Respondent Distribution</h2>
+        <div class="chart-grid">
+          <div class="chart-card">
+            <h3>By Company Size</h3>
+            <div id="chart-company-size" class="bar-chart"></div>
+          </div>
+          <div class="chart-card">
+            <h3>By Industry</h3>
+            <div id="chart-industry" class="bar-chart"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dashboard-section">
+        <h2>Operations</h2>
+        <div class="chart-grid">
+          <div class="chart-card">
+            <h3>Top Manual Work Areas</h3>
+            <div id="chart-manual-work" class="bar-chart"></div>
+          </div>
+          <div class="chart-card">
+            <h3>Hours Lost per Week</h3>
+            <div id="chart-hours-lost" class="bar-chart"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dashboard-section">
+        <h2>Solutions &amp; Willingness</h2>
+        <div class="chart-grid">
+          <div class="chart-card">
+            <h3>Desired Specialist Support</h3>
+            <div id="chart-specialist-support" class="bar-chart"></div>
+          </div>
+          <div class="chart-card">
+            <h3>Systems Used</h3>
+            <div id="chart-systems-used" class="bar-chart"></div>
+          </div>
+          <div class="chart-card">
+            <h3>Desired Outcomes</h3>
+            <div id="chart-desired-outcomes" class="bar-chart"></div>
+          </div>
+          <div class="chart-card">
+            <h3>AI Action Comfort</h3>
+            <div id="chart-ai-comfort" class="bar-chart"></div>
+          </div>
+          <div class="chart-card">
+            <h3>Willingness to Pay</h3>
+            <div id="chart-willingness" class="bar-chart"></div>
+          </div>
+          <div class="chart-card">
+            <h3>Response Source</h3>
+            <div id="chart-source" class="bar-chart"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dashboard-section">
+        <h2>Top Opportunities</h2>
+        <p class="hint">Ranked by frequency, hours lost, and willingness to pay signals.</p>
+        <ol id="opportunities-list" class="opportunities-list"></ol>
+      </section>
+
+      <section class="dashboard-section" id="whatsapp-section">
+        <h2>WhatsApp Distribution</h2>
+        <p class="hint">Share the survey link directly, or use a WhatsApp-ready link with a pre-filled message.</p>
+
+        <label for="survey-link">Survey link</label>
+        <div class="copy-row">
+          <input type="text" id="survey-link" readonly />
+          <button id="copy-link-btn" class="btn btn-secondary">Copy</button>
+        </div>
+
+        <label for="wa-message-template">Message template <span class="hint">(use {LINK} as placeholder)</span></label>
+        <textarea id="wa-message-template" rows="3">Hi! We're running a quick 5-minute survey on the challenges SMEs face day-to-day. Would love your input: {LINK}</textarea>
+
+        <button id="generate-wa-link-btn" class="btn btn-whatsapp">Generate WhatsApp link</button>
+        <div class="copy-row">
+          <input type="text" id="wa-generated-link" readonly />
+          <button id="copy-wa-link-btn" class="btn btn-secondary">Copy</button>
+        </div>
+      </section>
+
+      <section class="dashboard-section">
+        <h2>Responses</h2>
+        <div class="table-wrap">
+          <table id="responses-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Industry</th>
+                <th>Company Size</th>
+                <th>Role</th>
+                <th>Hours Lost</th>
+                <th>Willingness to Pay</th>
+                <th>Source</th>
+                <th>Contact</th>
+              </tr>
+            </thead>
+            <tbody id="responses-table-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
