@@ -254,16 +254,14 @@ function exportCsv() {
 }
 
 function setupWhatsappTools() {
-  const surveyUrl = new URL(window.location.href);
-  surveyUrl.search = '';
-  surveyUrl.searchParams.set('utm_source', 'whatsapp');
-  $('#survey-link').value = surveyUrl.toString();
+  const surveyUrl = 'https://bit.ly/4qts3Zp';
+  $('#survey-link').value = surveyUrl;
 
   $('#copy-link-btn').addEventListener('click', () => copyToClipboard($('#survey-link').value));
 
   $('#generate-wa-link-btn').addEventListener('click', () => {
     const template = $('#wa-message-template').value || '{LINK}';
-    const message = template.replace('{LINK}', surveyUrl.toString());
+    const message = template.replace('{LINK}', surveyUrl);
     const waLink = `https://wa.me/?text=${encodeURIComponent(message)}`;
     $('#wa-generated-link').value = waLink;
   });
