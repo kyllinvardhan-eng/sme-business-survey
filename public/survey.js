@@ -12,6 +12,11 @@ function getUtmSource() {
   return ['whatsapp', 'email', 'direct'].includes(source) ? source : 'organic';
 }
 
+function applyUtmSourceToForm() {
+  const field = document.getElementById('utm_source_field');
+  if (field) field.value = getUtmSource();
+}
+
 function buildShareUrl() {
   const url = new URL(window.location.href);
   url.search = '';
@@ -48,52 +53,26 @@ function updateQuestionVisibility() {
   $('#submit-btn').classList.toggle('hidden', currentQuestion !== TOTAL_QUESTIONS);
 }
 
-function collectFormData() {
-  const form = $('#survey-form');
-  const data = {};
-
-  const singleFields = [
-    'industry', 'company_size', 'role', 'time_consuming_tasks', 'tasks_being_missed',
-    'hours_lost_per_week', 'ideal_additional_role', 'named_software',
-    'ai_action_comfort', 'willingness_to_pay', 'definition_of_value', 'biggest_frustration',
-    'contact_name', 'contact_email', 'contact_company',
-  ];
-  singleFields.forEach((name) => {
-    const el = form.elements[name];
-    data[name] = el ? el.value : '';
+function encodeFormData(form) {
+  const params = new URLSearchParams();
+  new FormData(form).forEach((value, key) => {
+    params.append(key, value);
   });
-
-  const scoreFields = ['business_visibility_score', 'daily_brief_value_score'];
-  scoreFields.forEach((name) => {
-    const el = form.elements[name];
-    data[name] = el ? Number(el.value) : null;
-  });
-
-  document.querySelectorAll('.checkbox-group[data-field]').forEach((group) => {
-    const field = group.dataset.field;
-    data[field] = Array.from(group.querySelectorAll('input[type="checkbox"]:checked')).map((cb) => cb.value);
-  });
-
-  data.followup_permission = form.elements['followup_permission']
-    ? form.elements['followup_permission'].checked
-    : false;
-
-  data.utm_source = getUtmSource();
-
-  return data;
+  return params.toString();
 }
 
 async function submitSurvey(event) {
   event.preventDefault();
+  const form = $('#survey-form');
   const submitBtn = $('#submit-btn');
   submitBtn.disabled = true;
   submitBtn.textContent = 'Submitting...';
 
   try {
-    const response = await fetch('/api/submit-response', {
+    const response = await fetch('/', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(collectFormData()),
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encodeFormData(form),
     });
 
     if (!response.ok) {
@@ -111,6 +90,8 @@ async function submitSurvey(event) {
 }
 
 export function initSurvey() {
+  applyUtmSourceToForm();
+
   document.querySelectorAll('input[type="range"]').forEach((range) => {
     const output = document.getElementById(`${range.id}_out`);
     if (output) {
