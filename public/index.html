@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SME Business Survey</title>
-  <meta name="description" content="A 5-minute survey on the operational challenges facing small and medium businesses." />
+  <title>Business Survey</title>
+  <meta name="description" content="A 5-minute survey on the operational challenges facing your business or company." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -91,6 +91,7 @@
             <label class="checkbox-option"><input type="checkbox" name="manual_work_areas" value="Customer support / replies" /> Customer support / replies</label>
             <label class="checkbox-option"><input type="checkbox" name="manual_work_areas" value="Data entry" /> Data entry</label>
             <label class="checkbox-option"><input type="checkbox" name="manual_work_areas" value="Reporting" /> Reporting</label>
+            <label class="checkbox-option"><input type="checkbox" name="manual_work_areas" value="Pulling reports together from data sources" /> Pulling reports together from data sources</label>
             <label class="checkbox-option"><input type="checkbox" name="manual_work_areas" value="Inventory / stock management" /> Inventory / stock management</label>
             <label class="checkbox-option"><input type="checkbox" name="manual_work_areas" value="Social media / marketing" /> Social media / marketing</label>
             <label class="checkbox-option"><input type="checkbox" name="manual_work_areas" value="HR / hiring / onboarding" /> HR / hiring / onboarding</label>
@@ -283,7 +284,7 @@
 
     <section id="admin-dashboard-screen" class="screen hidden">
       <header class="admin-header">
-        <h1>SME Business Survey &mdash; Dashboard</h1>
+        <h1>Business Survey &mdash; Dashboard</h1>
         <div class="admin-header-actions">
           <button id="export-csv-btn" class="btn btn-secondary">Export CSV</button>
           <button id="admin-logout-btn" class="btn btn-secondary">Log out</button>
@@ -367,7 +368,7 @@
         </div>
 
         <label for="wa-message-template">Message template <span class="hint">(use {LINK} as placeholder)</span></label>
-        <textarea id="wa-message-template" rows="3">Hi! We're running a quick 5-minute survey on the challenges SMEs face day-to-day. Would love your input: {LINK}</textarea>
+        <textarea id="wa-message-template" rows="3">Hi! We're running a quick 5-minute survey on the challenges your business or company faces day-to-day. Would love your input: {LINK}</textarea>
 
         <button id="generate-wa-link-btn" class="btn btn-whatsapp">Generate WhatsApp link</button>
         <div class="copy-row">

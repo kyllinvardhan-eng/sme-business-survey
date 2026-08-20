@@ -26,7 +26,7 @@ function buildShareUrl() {
 
 function shareViaWhatsApp() {
   const link = buildShareUrl();
-  const message = `We're running a quick 5-minute survey on the challenges SMEs face day-to-day. Would love your input: ${link}`;
+  const message = `We're running a quick 5-minute survey on the challenges your business or company faces day-to-day. Would love your input: ${link}`;
   const waUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
   window.open(waUrl, '_blank', 'noopener');
 }

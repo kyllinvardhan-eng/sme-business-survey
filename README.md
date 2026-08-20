@@ -1,6 +1,6 @@
-# SME Business Survey
+# Business Survey
 
-A clean, professional survey platform to understand operational challenges facing small and medium businesses. Built entirely on Netlify — static frontend, serverless functions, and Netlify Forms as the data store.
+A clean, professional survey platform to understand operational challenges facing your business or company. Built entirely on Netlify — static frontend, serverless functions, and Netlify Forms as the data store.
 
 ## Features
 
