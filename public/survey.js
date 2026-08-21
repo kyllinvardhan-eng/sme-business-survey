@@ -50,6 +50,49 @@ function updateQuestionVisibility() {
   $('#submit-btn').classList.toggle('hidden', currentQuestion !== TOTAL_QUESTIONS);
 }
 
+function isQuestionAnswered(questionEl) {
+  if (questionEl.dataset.required === 'false') return true;
+
+  const selects = questionEl.querySelectorAll('select');
+  for (const select of selects) {
+    if (!select.value) return false;
+  }
+
+  const textFields = questionEl.querySelectorAll('input[type="text"], input[type="email"], textarea');
+  for (const field of textFields) {
+    if (!field.value.trim()) return false;
+  }
+
+  const checkboxGroups = questionEl.querySelectorAll('.checkbox-group');
+  for (const group of checkboxGroups) {
+    if (!group.querySelector('input[type="checkbox"]:checked')) return false;
+  }
+
+  return true;
+}
+
+function getValidationError(questionEl) {
+  let error = questionEl.querySelector('.validation-error');
+  if (!error) {
+    error = document.createElement('p');
+    error.className = 'error-text validation-error hidden';
+    error.textContent = 'Please answer this question before continuing.';
+    questionEl.appendChild(error);
+  }
+  return error;
+}
+
+function clearValidationError(questionEl) {
+  const error = questionEl.querySelector('.validation-error');
+  if (error) error.classList.add('hidden');
+}
+
+function goToQuestion(num) {
+  currentQuestion = num;
+  updateQuestionVisibility();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 function encodeFormData(form) {
   const params = new URLSearchParams();
   new FormData(form).forEach((value, key) => {
@@ -106,22 +149,36 @@ export function initSurvey() {
   });
 
   $('#next-btn').addEventListener('click', () => {
+    const questionEl = document.querySelector(`.question[data-question="${currentQuestion}"]`);
+    if (!isQuestionAnswered(questionEl)) {
+      getValidationError(questionEl).classList.remove('hidden');
+      return;
+    }
     if (currentQuestion < TOTAL_QUESTIONS) {
-      currentQuestion += 1;
-      updateQuestionVisibility();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      goToQuestion(currentQuestion + 1);
     }
   });
 
   $('#back-btn').addEventListener('click', () => {
     if (currentQuestion > 1) {
-      currentQuestion -= 1;
-      updateQuestionVisibility();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      goToQuestion(currentQuestion - 1);
     }
   });
 
-  $('#survey-form').addEventListener('submit', submitSurvey);
+  $('#survey-form').addEventListener('input', (event) => {
+    const questionEl = event.target.closest('.question');
+    if (questionEl) clearValidationError(questionEl);
+  });
+
+  $('#survey-form').addEventListener('submit', (event) => {
+    const questionEl = document.querySelector(`.question[data-question="${currentQuestion}"]`);
+    if (!isQuestionAnswered(questionEl)) {
+      event.preventDefault();
+      getValidationError(questionEl).classList.remove('hidden');
+      return;
+    }
+    submitSurvey(event);
+  });
 
   $('#retry-btn').addEventListener('click', () => {
     showScreen('form-screen');
